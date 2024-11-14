@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: [ 8.0, 8.1, 8.2 ]
+        php-version: [ "8.0", "8.1", "8.2" ]
     steps:
       -
         name: Set up QEMU
@@ -27,6 +27,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./php${{ matrix.php-version }}
+          context: php${{ matrix.php-version }}
           push: true
           tags: yiiman/wordpress-ioncube:php${{ matrix.php-version }}
