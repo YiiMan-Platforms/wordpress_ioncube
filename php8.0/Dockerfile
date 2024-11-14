@@ -1,5 +1,5 @@
 # Use the official WordPress image as the base
-FROM wordpress:latest
+FROM wordpress:php8.0
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
