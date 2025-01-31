@@ -4,7 +4,7 @@ FROM wordpress:php8.1
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     wget \
-    unzip
+    unzip 
 
 # Download and install ionCube Loader
 WORKDIR /tmp
@@ -13,6 +13,6 @@ RUN tar xvfz  /tmp/ioncube_loaders_lin_x86-64.tar.gz
 RUN PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;") && \
     cp /tmp/ioncube/ioncube_loader_lin_${PHP_VERSION}.so /usr/local/lib/php/extensions/no-debug-non-zts-20210902/ioncube_loader_lin_${PHP_VERSION}.so && \
     echo "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20210902/ioncube_loader_lin_${PHP_VERSION}.so" > /usr/local/etc/php/conf.d/00-ioncube.ini
-
+RUN pecl install xdebug
 # Clean up
 RUN rm -rf /tmp/ioncube*
