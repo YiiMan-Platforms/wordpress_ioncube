@@ -5,14 +5,14 @@ Include PHP composer
 
 Include PHP ionCube
 
-Include Latest php version
+Include Latest Wordpress version
 
 ## php 8.1
 Include PHP composer
 
 Include PHP ionCube
 
-Include Latest php version
+Include Latest Wordpress version
 
 ## php 8.2
 Include PHP composer
@@ -20,11 +20,11 @@ Include PHP composer
 Include PHP ionCube
 mongodb actived extenssion
 
-Include Latest php version
+Include Latest Wordpress version
 
 ## php 8.3
 Include PHP composer
 
 Include PHP ionCube
 
-Include Latest php version
+Include Latest Wordpress version
