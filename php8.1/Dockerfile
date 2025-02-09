@@ -8,9 +8,8 @@ RUN apt-get update && apt-get install -y \
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-
 RUN yes '' | pecl install mongodb && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
-
+RUN yes '' | pecl install apcu && docker-php-ext-enable apcu
 
 # Download and install ionCube Loader
 WORKDIR /tmp

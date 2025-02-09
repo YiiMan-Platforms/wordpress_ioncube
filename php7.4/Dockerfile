@@ -5,9 +5,11 @@ FROM wordpress:php7.4
 RUN apt-get update && apt-get install -y \
     wget \
     unzip
+RUN yes '' | pecl install mongodb && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini
+RUN yes '' | pecl install apcu && docker-php-ext-enable apcu
 
-# Download and install ionCube Loader
 WORKDIR /tmp
+# Download and install ionCube Loader
 RUN wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
 RUN tar xvfz  /tmp/ioncube_loaders_lin_x86-64.tar.gz
 RUN PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;") && \
